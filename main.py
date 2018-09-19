@@ -17,11 +17,11 @@ def rename_base64(name_path):
     dir_name, file_name_ext = os.path.split(name_path)
     file_name, file_ext = os.path.splitext(file_name_ext)
     file_name_base64 = base64.b64encode(file_name.encode('utf-8')).decode('utf-8')
-    return os.path.join(dir_name, '.'.join([file_name_base64, file_ext]))
+    return os.path.join(dir_name, ''.join([file_name_base64, file_ext]))
 
 
 def filter_wav(name_path):
-    return name_path.endswith('.wav')
+    return name_path.endswith('.mp3')
 
 
 def main(src_path, dst_path):
