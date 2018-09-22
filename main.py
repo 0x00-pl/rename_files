@@ -10,7 +10,9 @@ def rename_files(src_path, dst_path, map_func, filter_func):
             if filter_func(rel_path_name):
                 dst_path_name = os.path.join(dst_path, map_func(rel_path_name))
                 os.makedirs(os.path.dirname(dst_path_name), exist_ok=True)
-                os.replace(os.path.join(src_path, rel_path_name), dst_path_name)
+                src_path_name = os.path.join(src_path, rel_path_name)
+                print('mv', src_path_name, dst_path_name)
+                os.replace(src_path_name, dst_path_name)
 
 
 def rename_base64(name_path):
